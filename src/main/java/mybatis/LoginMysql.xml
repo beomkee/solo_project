@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.Login">
+
+	<select id="userCheck" resultType="int" parameterType="hashmap">
+		select count(*) from employee where id = #{id} and passwd = #{passwd}
+	</select>
+
+	<select id="idCheck" resultType="int" parameterType="hashmap">
+		select count(*) from employee where id = #{id}
+	</select>
+
+	<select id="getUser" resultType="User"  parameterType="hashmap">
+		select * from employee where id = #{id}
+	</select>
+
+	<select id="getLeftMenus" resultType="Menus" parameterType="hashmap">
+		select * from left_menu where division = #{div} and use_yn = 'y'
+	</select>
+	
+	
+</mapper>
