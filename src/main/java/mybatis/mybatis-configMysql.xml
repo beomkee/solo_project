@@ -20,5 +20,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="mybatis/LoginMysql.xml" />
+		<mapper resource="mybatis/LeftMysql.xml" />
 	</mappers>
 </configuration>

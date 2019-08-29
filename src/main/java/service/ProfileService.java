@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import dao.ChangePwDao;
 import dao.ProfileDao;
 import jdbc.ConnectionProvider;
@@ -12,6 +14,7 @@ import jdbc.JdbcUtil;
 import model.ChangePwRequest;
 import model.Message;
 
+@Service
 public class ProfileService {
 	private ProfileDao pfDao = new ProfileDao();
 

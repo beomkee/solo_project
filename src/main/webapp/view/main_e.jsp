@@ -16,8 +16,8 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="user-avatar text-center d-block">
-								<a href="<%=request.getContextPath()%>/profile/e_profile.do">
-									<img src="<%=request.getContextPath()%>/assets/img/user/${LOGINED_ID}.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+								<a href="<%=request.getContextPath()%>/profile/e_profile">
+									<img src="<%=request.getContextPath()%>/assets/img/user/${user.id}.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">
 								</a>
 							</div>
 							<div class="text-center">

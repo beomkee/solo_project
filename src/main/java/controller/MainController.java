@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.LeftMenu;
 import model.LoginUser;
 import service.MainService;
 
@@ -73,9 +74,7 @@ public class MainController {
 	public List leftMenu(HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		String div = (String) session.getAttribute("division");
-		System.out.println("div: "+div);
-		List menuList = mainservice.getLeftMenus(div);
-		return menuList;
+		return mainservice.getLeftMenus(div);
 	}
 
 }

@@ -14,10 +14,5 @@
 	<select id="getUser" resultType="User"  parameterType="hashmap">
 		select * from employee where id = #{id}
 	</select>
-
-	<select id="getLeftMenus" resultType="Menus" parameterType="hashmap">
-		select * from left_menu where division = #{div} and use_yn = 'y'
-	</select>
-	
 	
 </mapper>

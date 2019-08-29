@@ -14,6 +14,7 @@ import dao.MainDao;
 import jdbc.ConnectionProvider;
 import jdbc.JdbcUtil;
 import model.Factory;
+import model.LeftMenu;
 import model.LoginUser;
 import model.Notice;
 import mybatis.MybatisConnector;
@@ -22,6 +23,7 @@ import mybatis.MybatisConnector;
 public class MainService {
 
 	private final String namespace = "mybatis.Login";
+	private final String namespace2 = "mybatis.Left";
 
 	@Autowired
 	public MybatisConnector mybatisConnentor;
@@ -63,13 +65,12 @@ public class MainService {
 		return x;
 	}
 	
-	public List getLeftMenus(String div) throws Exception {
+	public List<LeftMenu> getLeftMenus(String div) throws Exception {
 		SqlSession sqlSession = mybatisConnentor.sqlSession();
-		System.out.println("service div: " + div);
 		HashMap map = new HashMap();
 		map.put("div", div);
 		try {
-			return sqlSession.selectOne(namespace + ".getLeftMenus", map);
+			return sqlSession.selectList(namespace2 + ".getLeftMenus", map);
 		} finally {
 			sqlSession.commit();
 			sqlSession.close();

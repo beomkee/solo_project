@@ -8,8 +8,6 @@
 			method	: "POST",
 			data	: {},
 			success	: function(data){
-				alert("asd");
-				console.log(data);
 				$.each(data, function(i, m){
 					var menu = '';
 					if(m.depth == 1) {
@@ -23,12 +21,10 @@
 								menu += 
 									'<li class="nav-item">'+
 										'<a class="nav-link" href="${pageContext.request.contextPath}/'+submenu.url+'">'+submenu.text+'</a>'+
-									'</li>'+
-									'</ul>'+
-								'</div>'+
-							'</li>';
+									'</li>';
 							}
 						}) 
+						menu += '</ul></div></li>';
 					}
 					$("#menus").append(menu);
 				})
@@ -47,7 +43,7 @@
 				<ul class="navbar-nav flex-column" id="menus">
 					<li class="nav-divider">Menu</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<%=request.getContextPath()%>/main?${division}">
+						<a class="nav-link" href="<%=request.getContextPath()%>/main?div=${division}">
 							<i class="fa fa-fw fa-user-circle"></i>
 							Dashboard
 						</a>

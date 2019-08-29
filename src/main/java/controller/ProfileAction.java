@@ -74,7 +74,7 @@ public class ProfileAction extends Action {
 		cpReq.setPasswdCheck(request.getParameter("passwdCheck"));
 		cpReq.setTel(
 				request.getParameter("tel1") + "-" + request.getParameter("tel2") + "-" + request.getParameter("tel3"));
-		Map<String, Boolean> stat = new HashMap<>();
+		Map<String, Boolean> stat = new HashMap<String, Boolean>();
 		if (!cpReq.isPasswordEqualToConfirm()) {
 			stat.put("notEq", Boolean.TRUE);
 			request.setAttribute("stat", stat);
