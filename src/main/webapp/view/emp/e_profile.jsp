@@ -7,14 +7,21 @@
 		</div>
 		<div class="row">
 			<div style="width: 847px; margin-left: auto; margin-right: auto">
-				<c:if test="${stat.notEq}">
+				<c:if test="${notEq}">
 					<div class="alert alert-warning alert-dismissible fade show"  role="alert">비밀번호가 일치하지 않습니다
 						<a href="#" class="close" data-dismiss="alert" aria-label="Close">
                         	<span aria-hidden="true">&times;</span>
                         </a>
                     </div>
 				</c:if>
-				<c:if test="${stat.success}">
+				<c:if test="${fail}">
+					<div class="alert alert-warning alert-dismissible fade show"  role="alert">수정실패했습니다.
+						<a href="#" class="close" data-dismiss="alert" aria-label="Close">
+                        	<span aria-hidden="true">&times;</span>
+                        </a>
+                    </div>
+				</c:if>
+				<c:if test="${success}">
 					<div class="alert alert-success alert-dismissible fade show" role="alert">수정되었습니다.
 					<a href="#" class="close" data-dismiss="alert" aria-label="Close">
                         	<span aria-hidden="true">&times;</span>
@@ -24,7 +31,7 @@
 				<div class="card">
 					<h5 class="card-header">${user.name}'s Profile</h5>
 					<div class="card-body">
-						<form action="<%=request.getContextPath()%>/profile/changePW.do" method="post">
+						<form action="changePW" method="post">
 							<input type="hidden" name="id" id="id" value="${user.id}" />
 							<table class="table table-hover">
 								<tbody>

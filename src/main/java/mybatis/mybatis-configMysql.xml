@@ -21,5 +21,6 @@
 	<mappers>
 		<mapper resource="mybatis/LoginMysql.xml" />
 		<mapper resource="mybatis/LeftMysql.xml" />
+		<mapper resource="mybatis/ProfileMysql.xml" />
 	</mappers>
 </configuration>
