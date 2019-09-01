@@ -58,7 +58,7 @@ public class EmailAction extends Action {
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(user));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(receiver));
+			message.addRecipient(Messege.RecipientType.TO, new InternetAddress(receiver));
 			message.setSubject(title);
 			message.setText(content);
 			Transport.send(message);

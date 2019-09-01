@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class Message {
+public class Messege {
 	private int num;
 	private String title;
 	private String content;

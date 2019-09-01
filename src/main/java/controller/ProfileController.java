@@ -16,9 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 import model.ChangePwRequest;
 import model.LoginUser;
 import model.Manufactures;
+import model.Messege;
 import model.Sales;
 import service.ChangePwService;
 import service.ManufacturesService;
+import service.MessegeService;
 import service.ProfileService;
 import service.SalesService;
 
@@ -33,6 +35,9 @@ public class ProfileController {
 
 	@Autowired
 	ManufacturesService manufacturesService;
+	
+	@Autowired
+	MessegeService messegeService;
 
 	@RequestMapping("e_profile")
 	public ModelAndView e_profile() {
@@ -129,4 +134,47 @@ public class ProfileController {
 		return mv;
 	}
 
+	
+	@RequestMapping("messege")
+	public ModelAndView messege(HttpServletRequest request) {
+		mv.clear();
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("LOGINED_ID");
+		List<Messege> mss = messegeService.getMessage(id);
+
+		mv.addObject("mss", mss);
+		mv.setViewName("messege/messegeList");
+		return mv;
+	}
+	
+	@RequestMapping("messageDetail")
+	public ModelAndView messageDetail(HttpServletRequest request, String num) {
+		mv.clear();
+		Messege ms = messegeService.getMsDetail(num);
+
+		int maxNum = messegeService.getMaxNum();
+		int minNum = messegeService.getMinNum();
+		int pre = messegeService.preNotice(num);
+		int next = messegeService.nextNotice(num);
+		
+		mv.addObject("ms", ms);
+		mv.addObject("pre", pre);
+		mv.addObject("next", next);
+		mv.addObject("minNum", minNum);
+		mv.addObject("maxNum", maxNum);
+		mv.setViewName("messege/messageDetail");
+		return mv;
+	}
+	
+	@RequestMapping("sendMessage")
+	public ModelAndView sendMessage(HttpServletRequest request) {
+		mv.clear();
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("LOGINED_ID");
+		List<Messege> mss = profileService.getMessage(id);
+		
+		mv.addObject("mss", mss);
+		mv.setViewName("messege/sendMessage");
+		return mv;
+	}
 }

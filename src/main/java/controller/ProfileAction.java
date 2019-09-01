@@ -15,7 +15,7 @@ import dao.UserDao;
 import model.ChangePwRequest;
 import model.LoginUser;
 import model.Manufactures;
-import model.Message;
+import model.Messege;
 import model.Notice;
 import model.Sales;
 import service.ChangePwService;
@@ -153,7 +153,7 @@ public class ProfileAction extends Action {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("LOGINED_ID");
 		ProfileService profileService = new ProfileService();
-		List<Message> mss = profileService.getMessage(id);
+		List<Messege> mss = profileService.getMessage(id);
 
 		request.setAttribute("mss", mss);
 
@@ -164,7 +164,7 @@ public class ProfileAction extends Action {
 
 		String num = req.getParameter("num");
 		ProfileService profileService = new ProfileService();
-		Message ms = profileService.getMsDetail(num);
+		Messege ms = profileService.getMsDetail(num);
 		req.setAttribute("ms", ms);
 
 		int maxNum = profileService.getMaxNum();

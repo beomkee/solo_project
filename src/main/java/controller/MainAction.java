@@ -12,7 +12,7 @@ import dao.UserDao;
 import model.Factory;
 import model.LoginUser;
 import model.Manufactures;
-import model.Message;
+import model.Messege;
 import model.Notice;
 import model.Sales;
 import model.SendEmail;
@@ -40,7 +40,7 @@ public class MainAction extends Action {
 		List<SendEmail> emails = emailService.getEmails(id);
 		
 		ProfileService profileService = new ProfileService();
-		List<Message> mss = profileService.getMessages(id);		
+		List<Messege> mss = profileService.getMessages(id);		
 		
 		List works = mainService.getWorks(id);
 		String pl = mainService.getPl(id);

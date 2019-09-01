@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <title>받은 쪽지함</title>
 <div class="dashboard-wrapper">
 	<div class="container-fluid dashboard-content">
@@ -11,7 +12,7 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col" style="text-align: center">To.</th>
+									<th scope="col" style="text-align: center">From.</th>
 									<th scope="col" width="60%" style="text-align: center">내용</th>
 									<th scope="col" style="text-align: center">받은날짜</th>
 								</tr>
@@ -19,19 +20,19 @@
 							<tbody>
 								<c:forEach var="ms" items="${mss}">
 									<tr>
-										<td style="text-align: center">${ms.to}</td>
+										<td style="text-align: center">${ms.from}</td>
 										<td>
 											<c:if test="${ms.readcount == 0}">
 												<span class="badge badge-secondary">unRead</span>
 											</c:if>
-											<a href="<%=request.getContextPath() %>/profile/messageDetial.do?num=${ms.num}">${ms.title}</a>
+											<a href="<%=request.getContextPath() %>/profile/messageDetail?num=${ms.num}">${ms.title}</a>
 										</td>
-										<td style="text-align: center">${ms.reg_date}</td>
+										<td style="text-align: center"><fmt:formatDate value="${ms.reg_date}" pattern="yyyy.MM.dd"/></td>
 									</tr>
 								</c:forEach>
 								<tr>
 									<td colspan="8">
-										<a href="<%=request.getContextPath()%>/profile/sendMessage.do" class="btn btn btn-outline-warning btn-sm float-right">쪽지 보내기</a>
+										<a href="<%=request.getContextPath()%>/profile/sendMessage" class="btn btn btn-outline-warning btn-sm float-right">쪽지 보내기</a>
 									</td>
 								</tr>
 							</tbody>

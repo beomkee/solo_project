@@ -10,7 +10,7 @@ import java.util.List;
 import jdbc.JdbcUtil;
 import model.ChangePwRequest;
 import model.Manufactures;
-import model.Message;
+import model.Messege;
 import model.Sales;
 
 public class ProfileDao {
@@ -99,18 +99,18 @@ public class ProfileDao {
 		}
 	}
 
-	public List<Message> getMessage(Connection conn, String id) throws SQLException {
+	public List<Messege> getMessage(Connection conn, String id) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<Message> list = new ArrayList<Message>();
-		Message ms = null;
+		List<Messege> list = new ArrayList<Messege>();
+		Messege ms = null;
 		try {
 			pstmt = conn.prepareStatement("select * from message where receiver = ? order by num desc");
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				do {
-					ms = new Message();
+					ms = new Messege();
 					ms.setNum(rs.getInt("num"));
 					ms.setTitle(rs.getString("title"));
 					ms.setContent(rs.getString("content"));
@@ -128,11 +128,11 @@ public class ProfileDao {
 		}
 	}
 
-	public List<Message> getMessages(Connection conn, String id) throws SQLException {
+	public List<Messege> getMessages(Connection conn, String id) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<Message> list = new ArrayList<Message>();
-		Message ms = null;
+		List<Messege> list = new ArrayList<Messege>();
+		Messege ms = null;
 		try {
 			pstmt = conn.prepareStatement(
 					"select * from message where receiver = ? and readcount = 0 order by num desc limit 0,5");
@@ -140,7 +140,7 @@ public class ProfileDao {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				do {
-					ms = new Message();
+					ms = new Messege();
 					ms.setNum(rs.getInt("num"));
 					ms.setTitle(rs.getString("title"));
 					ms.setContent(rs.getString("content"));
@@ -158,10 +158,10 @@ public class ProfileDao {
 		}
 	}
 
-	public Message getMsDetail(Connection conn, String num) throws SQLException {
+	public Messege getMsDetail(Connection conn, String num) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		Message ms = null;
+		Messege ms = null;
 		try {
 			pstmt = conn.prepareStatement("update message set readcount = readcount + 1 where num = ?");
 			pstmt.setString(1, num);
@@ -170,7 +170,7 @@ public class ProfileDao {
 			pstmt.setString(1, num);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				ms = new Message();
+				ms = new Messege();
 				ms.setNum(rs.getInt("num"));
 				ms.setTitle(rs.getString("title"));
 				ms.setContent(rs.getString("content"));

@@ -11,7 +11,7 @@ import jdbc.JdbcUtil;
 import model.ChangePwRequest;
 import model.LoginUser;
 import model.Manufactures;
-import model.Message;
+import model.Messege;
 import model.Sales;
 
 public class ManagerDao {

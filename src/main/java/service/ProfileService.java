@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import model.Manufactures;
+import model.Messege;
 import model.Sales;
 import mybatis.MybatisConnector;
 
@@ -86,6 +87,7 @@ public class ProfileService {
 			sqlSession.close();
 		}
 	}
+	
 
 //	private ProfileDao pfDao = new ProfileDao();
 //

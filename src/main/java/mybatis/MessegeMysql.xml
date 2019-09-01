@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.Messege">
+
+	<select id="getMessage" resultType="Messege" parameterType="hashmap">
+		select * from message where receiver = #{id} order by num desc
+	</select>
+	
+	<select id="updateReadcount" parameterType="hashmap">
+		update message set readcount = readcount + 1 where num = #{num}
+	</select>
+	
+	<select id="getMsDetail" resultType="Messege" parameterType="hashmap">
+		select * from message where num = #{num}
+	</select>
+	
+	<select id="sendMessage" resultType="Messege" parameterType="hashmap">
+		insert into message values(0, ?, ?, ?, ?, now(), 0, 0, 0)
+	</select>
+	
+</mapper>

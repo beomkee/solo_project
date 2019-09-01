@@ -26,4 +26,8 @@
 	<select id="saleInsert" parameterType="Sales">
 		insert into sales 
 	</select>
+	
+	<select id="getMessage" resultType="Messege" parameterType="hashmap">
+		select * from message where receiver = #{id} order by num desc
+	</select>
 </mapper>
