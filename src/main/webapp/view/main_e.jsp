@@ -86,7 +86,7 @@
 										<div class="card border-3 border-top border-top-primary">
 											<div class="card-body">
 												<h5 class="text-muted">
-													<a href="<%=request.getContextPath()%>/profile/works.do"> 최근 업무 </a>
+													<a href="<%=request.getContextPath()%>/profile/works"> 최근 업무 </a>
 												</h5>
 												<div class="metric-value d-inline-block">
 													<h1 class="mb-1">${lastWort}</h1>
@@ -101,7 +101,7 @@
 										<div class="card border-3 border-top border-top-primary">
 											<div class="card-body">
 												<h5 class="text-muted">
-													<a href="<%=request.getContextPath()%>/profile/message.do"> 읽지 않은 쪽지 </a>
+													<a href="<%=request.getContextPath()%>/profile/message"> 읽지 않은 쪽지 </a>
 												</h5>
 												<div class="metric-value d-inline-block">
 													<h1 class="mb-1">${unReadMs}</h1>
@@ -113,7 +113,7 @@
 										<div class="card border-3 border-top border-top-primary">
 											<div class="card-body">
 												<h5 class="text-muted">
-													<a href="<%=request.getContextPath()%>/email/sendList.do"> 최근 보낸 이메일 </a>
+													<a href="<%=request.getContextPath()%>/email/sendList"> 최근 보낸 이메일 </a>
 												</h5>
 												<div class="metric-value d-inline-block">
 													<h1 class="mb-1">${lastEmail }</h1>
@@ -128,7 +128,7 @@
 										<div class="card border-3 border-top border-top-primary">
 											<div class="card-body">
 												<h5 class="text-muted">
-													<a href="<%=request.getContextPath()%>/notice/nList.do"> 최근공지 </a>
+													<a href="<%=request.getContextPath()%>/notice/nList"> 최근공지 </a>
 												</h5>
 												<div class="metric-value d-inline-block">
 													<h1 class="mb-1">${lastNotice}</h1>
@@ -168,7 +168,7 @@
 																</c:forEach>
 																<tr>
 																	<td colspan="8">
-																		<a href="<%=request.getContextPath()%>/notice/nList.do" class="btn btn btn-outline-warning btn-sm float-right">Notice Details</a>
+																		<a href="<%=request.getContextPath()%>/notice/nList" class="btn btn btn-outline-warning btn-sm float-right">Notice Details</a>
 																	</td>
 																</tr>
 															</tbody>
@@ -219,7 +219,7 @@
 															</c:if>
 															<tr>
 																<td colspan="8">
-																	<a href="<%=request.getContextPath()%>/profile/message.do" class="btn btn btn-outline-warning btn-sm float-right">Message Details</a>
+																	<a href="<%=request.getContextPath()%>/profile/message" class="btn btn btn-outline-warning btn-sm float-right">Message Details</a>
 																</td>
 															</tr>
 															</tbody>
@@ -263,7 +263,7 @@
 																	</c:forEach>
 																	<tr>
 																		<td colspan="8">
-																			<a href="<%=request.getContextPath()%>/profile/works.do" class="btn btn btn-outline-warning btn-sm float-right">Works Details</a>
+																			<a href="<%=request.getContextPath()%>/profile/works" class="btn btn btn-outline-warning btn-sm float-right">Works Details</a>
 																		</td>
 																	</tr>
 																</tbody>
@@ -292,7 +292,7 @@
 																	</c:forEach>
 																	<tr>
 																		<td colspan="8">
-																			<a href="<%=request.getContextPath()%>/profile/works.do" class="btn btn btn-outline-warning btn-sm float-right">Works Details</a>
+																			<a href="<%=request.getContextPath()%>/profile/works" class="btn btn btn-outline-warning btn-sm float-right">Works Details</a>
 																		</td>
 																	</tr>
 																</tbody>
@@ -329,14 +329,14 @@
 																		<td style="text-align: center">${email.writer}</td>
 																		<td style="text-align: center">${email.to}</td>
 																		<td>
-																			<a href="<%=request.getContextPath() %>/email/eContent.do?num=${email.num}">${email.title}</a>
+																			<a href="<%=request.getContextPath() %>/email/eContent?num=${email.num}">${email.title}</a>
 																		</td>
 																		<td style="text-align: center">${email.reg_date}</td>
 																	</tr>
 																</c:forEach>
 																<tr>
 																	<td colspan="8">
-																		<a href="<%=request.getContextPath()%>/email/sendList.do" class="btn btn btn-outline-warning btn-sm float-right">Email Details</a>
+																		<a href="<%=request.getContextPath()%>/email/sendList" class="btn btn btn-outline-warning btn-sm float-right">Email Details</a>
 																	</td>
 																</tr>
 															</tbody>

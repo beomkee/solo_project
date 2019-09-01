@@ -4,6 +4,26 @@
 <mapper namespace="mybatis.Profile">
 
 	<select id="updatePw" resultType="int" parameterType="hashmap">
-		update employee set passwd = #{passwd}, tel = #{tel} where id = #{id}
+		update
+		employee set passwd = #{passwd}, tel = #{tel} where id = #{id}
+	</select>
+	<select id="getMaxSale" resultType="int">
+		select max(s_num) from sales
+	</select>
+	<select id="getMaxMf" resultType="int">
+		select max(mf_num) from manufactures
+	</select>
+	<select id="mfList" resultType="Manufactures" parameterType="hashmap">
+		select * from manufactures where id = #{id} order by mf_num desc
+	</select>
+	<select id="saleList" resultType="Sales" parameterType="hashmap">
+		select * from sales where id = #{id} order by s_obtain_date desc
+	</select>
+	
+	<select id="mfInsert" parameterType="Manufactures">
+		insert into manufactures
+	</select>
+	<select id="saleInsert" parameterType="Sales">
+		insert into sales 
 	</select>
 </mapper>

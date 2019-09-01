@@ -6,6 +6,9 @@
 	<typeAliases>
 		<typeAlias type="model.LoginUser" alias="User" />
 		<typeAlias type="model.LeftMenu" alias="Menus" />
+		<typeAlias type="model.Sales" alias="Sales" />
+		<typeAlias type="model.Manufactures" alias="Manufactures" />
+		<typeAlias type="model.Product" alias="Product" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -22,5 +25,6 @@
 		<mapper resource="mybatis/LoginMysql.xml" />
 		<mapper resource="mybatis/LeftMysql.xml" />
 		<mapper resource="mybatis/ProfileMysql.xml" />
+		<mapper resource="mybatis/ManufactureMysql.xml" />
 	</mappers>
 </configuration>

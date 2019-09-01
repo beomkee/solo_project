@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.Manufacture">
+
+	<select id="proNums" resultType="Product">
+		select p_num from product
+	</select>
+	<select id="facNum" resultType="String" parameterType="hashmap">
+		select f_num from employee where id = #{id}
+	</select>
+	<select id="plNum" resultType="String" parameterType="hashmap">
+		select pl_num from employee where id = #{id}
+	</select>
+</mapper>

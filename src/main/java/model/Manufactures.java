@@ -4,7 +4,7 @@ public class Manufactures {
 	private String mf_num;
 	private String f_num;
 	private String pl_num;
-	private String e_id;
+	private String id;
 	private String p_num;
 	private String mf_count;
 	private String mf_date;
@@ -27,11 +27,12 @@ public class Manufactures {
 	public void setPl_num(String pl_num) {
 		this.pl_num = pl_num;
 	}
-	public String getE_id() {
-		return e_id;
+	
+	public String getId() {
+		return id;
 	}
-	public void setE_id(String e_id) {
-		this.e_id = e_id;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getP_num() {
 		return p_num;
@@ -53,7 +54,7 @@ public class Manufactures {
 	}
 	@Override
 	public String toString() {
-		return " {\"mf_num\":\"" + mf_num + "\", \"f_num\":\"" + f_num + "\", \"pl_num\":\"" + pl_num + "\", \"e_id\":\"" + e_id
+		return " {\"mf_num\":\"" + mf_num + "\", \"f_num\":\"" + f_num + "\", \"pl_num\":\"" + pl_num + "\", \"id\":\"" + id
 				+ "\", \"p_num\":\"" + p_num + "\", \"mf_count\":\"" + mf_count + "\", \"mf_date\":\"" + mf_date + "\"}";
 	}
 	

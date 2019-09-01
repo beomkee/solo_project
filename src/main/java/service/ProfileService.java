@@ -1,11 +1,14 @@
 package service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.Manufactures;
+import model.Sales;
 import mybatis.MybatisConnector;
 
 @Service
@@ -24,6 +27,60 @@ public class ProfileService {
 		map.put("tel", tel);
 		try {
 			return sqlSession.update(namespace + ".updatePw", map);
+		} finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+	}
+
+	public int getMaxSale() {
+		SqlSession sqlSession = mybatisConnentor.sqlSession();
+		try {
+			return sqlSession.selectOne(namespace + ".getMaxSale");
+		} finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+	}
+
+	public int getMaxMf() {
+		SqlSession sqlSession = mybatisConnentor.sqlSession();
+		try {
+			return sqlSession.selectOne(namespace + ".getMaxMf");
+		} finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+	}
+
+	public List getWorks(String id, String pl) {
+		SqlSession sqlSession = mybatisConnentor.sqlSession();
+		HashMap map = new HashMap();
+		map.put("id", id);
+		try {
+			if (pl.equals("mf")) {
+				return sqlSession.selectList(namespace + ".mfList", map);
+			} else {
+				return sqlSession.selectList(namespace + ".saleList", map);
+			}
+		} finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+	}
+	
+	public void insertWork(String id, String pl, Manufactures manufactures, Sales sales) {
+		SqlSession sqlSession = mybatisConnentor.sqlSession();
+		HashMap map = new HashMap();
+		map.put("id", id);
+		map.put("manufactures", manufactures);
+		map.put("sales", sales);
+		try {
+			if (pl.equals("mf")) {
+				sqlSession.insert(namespace + ".mfInsert", map);
+			} else {
+				sqlSession.insert(namespace + ".saleInsert", map);
+			}
 		} finally {
 			sqlSession.commit();
 			sqlSession.close();

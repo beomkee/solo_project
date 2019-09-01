@@ -15,7 +15,7 @@
 				<div class="card">
 					<h5 class="card-header">업무 등록</h5>
 					<div class="card-body">
-						<form action="<%=request.getContextPath() %>/profile/insertWorks.do" method="post" >
+						<form action="<%=request.getContextPath() %>/profile/insertWorks" method="post" >
 						<input type="hidden" name="pl" value="${pl}">
 						<c:if test="${pl eq 'mf'}">
 							<table class="table table-bordered">
@@ -96,7 +96,7 @@
 											<select class="form-control form-control-sm" name="p_num" id="p_num" required="required">
 												<option></option>
 												<c:forEach var="product" items="${products}">
-													<option value="${product}">${product}</option>
+													<option value="${product.p_num}">${product.p_num}</option>
 												</c:forEach>
 											</select>
 										</td>

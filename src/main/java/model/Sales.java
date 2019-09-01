@@ -4,7 +4,7 @@ public class Sales {
 
 	private String s_num;
 	private String mf_num;
-	private String e_id;
+	private String id;
 	private String c_id;
 	private String p_num;
 	private String s_obtain_date;
@@ -23,11 +23,12 @@ public class Sales {
 	public void setMf_num(String mf_num) {
 		this.mf_num = mf_num;
 	}
-	public String getE_id() {
-		return e_id;
+	
+	public String getId() {
+		return id;
 	}
-	public void setE_id(String e_id) {
-		this.e_id = e_id;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getC_id() {
 		return c_id;
@@ -61,7 +62,7 @@ public class Sales {
 	}
 	@Override
 	public String toString() {
-		return "{s_num:\"" + s_num + "\", mf_num:\"" + mf_num + "\", e_id:\"" + e_id + "\", c_id:\"" + c_id + "\", p_num:\""
+		return "{s_num:\"" + s_num + "\", mf_num:\"" + mf_num + "\", id:\"" + id + "\", c_id:\"" + c_id + "\", p_num:\""
 				+ p_num + "\", s_obtain_date:\"" + s_obtain_date + "\", s_contract_sum:\"" + s_contract_sum
 				+ "\", s_complete_date:\"" + s_complete_date + "\"}";
 	}
